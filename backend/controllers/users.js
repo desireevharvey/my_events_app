@@ -29,17 +29,15 @@ router.post('/signup', async (req, res) => {
     
     }})
 
-//Login Route- works in Postman
+//Login Route- not work in Postman
 router.post('/login', async (req, res) => {
     const foundUser = await db.User.findOne({ username: req.body.username})
     if(req.body.password === foundUser.password){
         const payload = {id: foundUser._id}
         const token = jwt.encode(payload, config.jwtSecret)
-        // const userProducts = await db.Product.find({ user: foundUser._id })
         res.json({
             user: foundUser,
-            token: token,
-            // products: userProducts
+            token: token
         })
     } else {
         res.sendStatus(401)
@@ -48,14 +46,14 @@ router.post('/login', async (req, res) => {
 
 
 // Show Token
-router.get('/token', isAuthenticated, async (req, res) => {
+router.get('/token', async (req, res) => {
     const token = req.headers.authorization
     const decoded = jwt.decode(token, config.jwtSecret)
     const foundUser = await db.User.findById(decoded.id)
     const userEvents = await db.Event.find({ user: foundUser._id })
     res.json({
         user: foundUser,
-        products: userEvents
+        events: userEvents
     })
 })
 
@@ -65,6 +63,7 @@ router.get('/', async (req, res) => {
     res.json(allUsers)
 })
 
+// not working in postman(both)
 // Show User / Associated Posts
 router.get('/:id', isAuthenticated, async (req, res)=> {
     const token = req.headers.authorization
@@ -73,8 +72,20 @@ router.get('/:id', isAuthenticated, async (req, res)=> {
     const userEvents = await db.Event.find({ user: foundUser._id })
     res.json({
         user: foundUser,
-        products: userEvents
+        event: userEvents
     })
+})
+
+
+
+// edit user (working in postman)
+router.put('/:id', async (req, res)=> {
+    const updatedUser = await db.User.findByIdAndUpdate(
+        req.params.id,
+        req.body,
+        {new: true}
+    )
+    res.json(updatedUser)
 })
 
 // Delete User/Associated Posts
@@ -83,6 +94,7 @@ router.delete('/:id', isAuthenticated, async (req, res)=> {
     await db.User.findByIdAndDelete(req.params.id)
     res.sendStatus(200)
 })
+
 
 
 module.exports = router

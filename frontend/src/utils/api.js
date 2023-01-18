@@ -66,8 +66,8 @@ export async function showOneEvent(itemId) {
 
 // Update a Event
 
-export async function updateOneEvent(itemId) {
-    const { data } = await axios.put('http://localhost:8000/event/' + itemId, config)
+export async function updateOneEvent(itemId, editedState) {
+    const { data } = await axios.put('http://localhost:8000/event/' + itemId, editedState, config)
     return data
 }
 

@@ -15,10 +15,19 @@ function isAuthenticated(req,res,next) {
 
 
 // Create Route 
-router.post('/', async (req, res) => {
-	const createdEvent = await db.Event.create(req.body);
-	res.json(createdEvent);
-});
+// router.post('/', async (req, res) => {
+// 	const createdEvent = await db.Event.create(req.body);
+// 	res.json(createdEvent);
+// });
+
+router.post('/', isAuthenticated, async (req,res) => {
+    const createdEvent = await db.Event.create(req.body)
+    const token = req.headers.authorization
+    const decoded = jwt.decode(token, config.jwtSecret)
+    createdEvent.user = decoded.id
+    createdEvent.save()
+    res.json(createdEvent)
+})
 
 // Index 
 router.get('/', async (req,res) => {

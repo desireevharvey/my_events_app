@@ -7,6 +7,8 @@ import SignUp from './pages/SignUp';
 import NewEvent from './pages/NewEvent';
 import Account from './pages/Account';
 import ShowEvent from './pages/ShowEvent';
+import EditEvent from './pages/EditEvent';
+import Nav from './components/Nav';
 import { getAllEvents } from './utils/api';
 import axios from 'axios';
 
@@ -14,52 +16,20 @@ import axios from 'axios';
 export default function App(){
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [currentUser, setUser] = useState({})
-  const [events, setEvents] = useState([])
-  const [myEvents, setMyEvents] = useState([]);
 
-
-async function getEvents() {
-  const getAllEvents = await axios.get(`http://localhost:8000/event`);
-  setMyEvents(getAllEvents.data);
-}
-
-useEffect(()=>{
-  getEvents()
-  loaded()
-  // fetch("http://localhost:8000/event")
-  // .then(res => res.json())
-  // .then(data => setEvents(data))
-  },[])
-
-
-
-
-function loading(){
-  return <h1>loading...</h1>
-}
-function loaded(){
-  return myEvents.map(e =>(
-    <div key={e._id}>
-      <img src={e.image} alt={e.performer}></img>
-      <p>{e.performer}</p>
-      <p>{e.venue}</p>
-      <p>{e.date}</p>
-      <p>{e.time}</p>
-
-    </div>
-  ))
-}
 return (
   <>
+  <Nav />
   <Routes>
   <Route path="/" element={<Home/>} />
+  <Route path="/:id/edit" element={<EditEvent />} />
   <Route path="/event/:id" element={<ShowEvent currentUser={currentUser}/>} />
   <Route path="/login" element={<LogIn setIsLoggedIn={setIsLoggedIn} />} />
   <Route path="/signup" element={<SignUp setIsLoggedIn={setIsLoggedIn}/>} />
   <Route path="/newevent" element={<NewEvent/>} />
   <Route path="/account" element={<Account currentUser={currentUser} setIsLoggedIn={setIsLoggedIn}/>} />
-</Routes>
-  {myEvents.length > 0 ? loaded() : loading()}
+  </Routes>
+  
   </>
   )
 }
