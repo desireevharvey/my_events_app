@@ -1,27 +1,44 @@
+
 import { useState, useEffect } from 'react';
-import { Routes, Route } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import LogIn from './pages/LogIn';
 import SignUp from './pages/SignUp';
 import NewEvent from './pages/NewEvent';
 import Account from './pages/Account';
 import ShowEvent from './pages/ShowEvent';
+import { getAllEvents } from './utils/api';
+import axios from 'axios';
+
 
 export default function App(){
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [currentUser, setUser] = useState({})
   const [events, setEvents] = useState([])
-  useEffect(()=>{
-  fetch("http://localhost:8000/event")
-  .then(res => res.json())
-  .then(data => setEvents(data))
+  const [myEvents, setMyEvents] = useState([]);
+
+
+async function getEvents() {
+  const getAllEvents = await axios.get(`http://localhost:8000/event`);
+  setMyEvents(getAllEvents.data);
+}
+
+useEffect(()=>{
+  getEvents()
+  loaded()
+  // fetch("http://localhost:8000/event")
+  // .then(res => res.json())
+  // .then(data => setEvents(data))
   },[])
+
+
+
 
 function loading(){
   return <h1>loading...</h1>
 }
 function loaded(){
-  return events.map(e =>(
+  return myEvents.map(e =>(
     <div key={e._id}>
       <img src={e.image} alt={e.performer}></img>
       <p>{e.performer}</p>
@@ -42,7 +59,7 @@ return (
   <Route path="/newevent" element={<NewEvent/>} />
   <Route path="/account" element={<Account currentUser={currentUser} setIsLoggedIn={setIsLoggedIn}/>} />
 </Routes>
-  {events.length > 0 ? loaded() : loading()}
+  {myEvents.length > 0 ? loaded() : loading()}
   </>
   )
 }

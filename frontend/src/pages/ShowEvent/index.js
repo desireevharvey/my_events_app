@@ -1,3 +1,5 @@
+import React from "react"
+
 const ShowEvent = () => {
     return(
         <h1>Show Page</h1>

@@ -9,7 +9,7 @@ const config = {
 //USER AXIOS ROUTES 
 
 // Log in to User Account
-export async function userLogin(formData) {
+export async function userLogIn(formData) {
     const { data } = await axios.post('http://localhost:8000/user/login', formData)
     return data
 }

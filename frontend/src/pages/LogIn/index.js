@@ -1,7 +1,7 @@
 import { useState } from "react"
-import { userLogin } from "../../utils/api"
+import { userLogIn } from "../../utils/api"
 import { useNavigate } from "react-router-dom"
-
+import React from "react"
 
 
 const LogIn = (props) => {
@@ -15,7 +15,7 @@ const LogIn = (props) => {
 
     function handleSubmit(event) {
         event.preventDefault()
-        userLogin(formData)
+        userLogIn(formData)
             .then((data) => localStorage.token = data.token)
         props.setIsLoggedIn(true)
         navigate('/')
@@ -30,6 +30,8 @@ const LogIn = (props) => {
     <label htmlFor="Password">Password</label>
     <input type="password" name="password" onChange={handleChange} value={formData.password}/>
   </div>
+  <button onClick={handleSubmit}>Login</button>
+
 </form>
     )
 }
