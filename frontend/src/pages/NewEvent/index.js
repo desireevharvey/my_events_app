@@ -18,7 +18,7 @@ const NewEvent = () => {
     })
     
     function handleChange(event) {
-        setFormData({...formData, [event.target.name]: event.target.value })
+        setFormData({...formData, [event.target.id]: event.target.value })
     }
 
     const navigate = useNavigate();
@@ -39,7 +39,7 @@ const NewEvent = () => {
     return(
        
         <form>
-        <div className="form-group">
+        <div>
             <label htmlFor="image">Image: </label>
             <input 
                 type="text" 
@@ -48,7 +48,7 @@ const NewEvent = () => {
                 onChange={handleChange}
                 value={formData.image}  />
         </div>
-        <div className="form-group">
+        <div>
             <label htmlFor="performer">Performer: </label>
             <input 
                 type="text" 
@@ -56,15 +56,15 @@ const NewEvent = () => {
                 onChange={handleChange}
                 value={formData.performer} />
         </div>
-        <div className="input">
+        <div>
             <label htmlFor="date">Date: </label>
             <input type="text" id="date" value={formData.date} onChange={handleChange} />
         </div>
-        <div className="input">
+        <div>
             <label htmlFor="time">Time:</label>
             <input type="text" id="time" value={formData.time} onChange={handleChange} />
         </div>
-        <div className="input">
+        <div>
             <label htmlFor="venue">Venue:</label>
             <input type="text" id="venue" value={formData.venue} onChange={handleChange} />
         </div>
