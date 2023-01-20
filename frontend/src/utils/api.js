@@ -49,6 +49,12 @@ export async function getToken() {
     return data
 }
 
+// Get Only The Logged In Users Events
+export async function getUserEvents(userId) {
+    const { data } = await axios.get('http://localhost:8000/user/get/' + userId)
+    return data
+}
+
 // Get all events
 
 export async function getAllEvents() {

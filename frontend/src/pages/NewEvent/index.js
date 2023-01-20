@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom"
 
 
 
-const NewEvent = () => {
+const NewEvent = (props) => {
     
 
     
@@ -19,6 +19,7 @@ const NewEvent = () => {
     
     function handleChange(event) {
         setFormData({...formData, [event.target.id]: event.target.value })
+        props.setCreatedEvent(false)
     }
 
     const navigate = useNavigate();
@@ -31,6 +32,7 @@ const NewEvent = () => {
     function handleSubmit(event) {
         event.preventDefault()
         createEvent(formData)
+        props.setCreatedEvent(true)
         navigateHome()
     
     }

@@ -2,8 +2,11 @@
 
 Introduction
 My events is a full stack application with a React frontend. My events allows users
-to search for and view events such as concerts or comedy tours etc. When the user creates an account,
+to search for and view events such as concerts or comedy tours etc. nationwide and in Canada. When the user creates an account,
 they are allowed to log in and create, edit or delete events. 
+
+
+"SeatGeek API facilitates this booking process by providing a powerful tool for filtering and fetching the vast data for live events from SeatGeek. "
 
 Technologies Used
 - React
@@ -22,7 +25,8 @@ Approach
 - Related models
 - CSS framework (Tailwind)
 
-
+refrence
+https://www.educative.io/courses/performing-event-searches-with-the-seatgeek-api-in-javascript/m2JXMnX26vp
 
 
 Features

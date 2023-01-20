@@ -14,11 +14,6 @@ function isAuthenticated(req,res,next) {
 }
 
 
-// Create Route 
-// router.post('/', async (req, res) => {
-// 	const createdEvent = await db.Event.create(req.body);
-// 	res.json(createdEvent);
-// });
 
 router.post('/', isAuthenticated, async (req,res) => {
     const createdEvent = await db.Event.create(req.body)

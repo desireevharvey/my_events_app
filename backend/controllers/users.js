@@ -46,7 +46,7 @@ router.post('/login', async (req, res) => {
 
 
 // Show Token
-router.get('/token', async (req, res) => {
+router.get('/token', isAuthenticated, async (req, res) => {
     const token = req.headers.authorization
     const decoded = jwt.decode(token, config.jwtSecret)
     const foundUser = await db.User.findById(decoded.id)
@@ -61,6 +61,13 @@ router.get('/token', async (req, res) => {
 router.get('/', async (req, res) => {
     const allUsers = await db.User.find({})
     res.json(allUsers)
+})
+
+// Get User Events by logged in ID
+router.get('/get/:id', async (req,res) => {
+    const foundUser = await db.User.findById(req.params.id)
+    const userEvents = await db.Event.find({ user: foundUser._id })
+    res.json(userEvents)
 })
 
 // not working in postman(both)

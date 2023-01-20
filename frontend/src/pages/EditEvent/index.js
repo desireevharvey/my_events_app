@@ -41,7 +41,7 @@ function EditEvent ({anEvent}) {
 
     const deleteEvent = () => {
         
-        deleteOneEvent(id).then(alert("You deleted this product"))
+        deleteOneEvent(id).then(alert("You deleted this event"))
         navigate('/account')
     }
 

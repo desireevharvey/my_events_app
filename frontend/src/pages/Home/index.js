@@ -3,16 +3,16 @@ import { getAllEvents } from "../../utils/api";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const Home = () => {
-    const [events, setEvents] = useState([])
+const Home = (props) => {
+    
     const [myEvents, setMyEvents] = useState([]);
 
 
     useEffect(()=>{
         getAllEvents().then((data) => {setMyEvents(data)})
-    },[])
+    },[props.createdEvent])
 
-    console.log(myEvents)
+   
 
    
    

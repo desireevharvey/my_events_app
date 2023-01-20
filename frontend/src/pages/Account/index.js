@@ -1,14 +1,16 @@
-import { getToken } from "../../utils/api"
+import { getUserEvents } from "../../utils/api"
 import { useState, useEffect } from "react"
 
-const Account = () => {
-    const [userData, setUserData] = useState({username: ''})
+const Account = (props) => {
+    
     const [userEventData, setUserEventData] = useState([])
-
+    const userId = localStorage.getItem('id')
+    
+   
     useEffect(() => {
-        getToken().then((data) => {
-            setUserData(data.user.username)
-            setUserEventData(data.events)
+        getUserEvents(userId).then((data) => {
+            
+            setUserEventData(data)
             
         })
     }, [])
@@ -17,6 +19,7 @@ const Account = () => {
 
     const handleLogOut = () => {
         localStorage.clear()
+        props.setIsLoggedIn(false)
       }
 
     return(
@@ -29,7 +32,7 @@ const Account = () => {
                 {userEventData.map((userEvent, i) => {
                     return(
                     <div key={i} style={{width: '18rem'}}>
-                        <img src={userEvent.image} alt={userEvent.title}/>
+                        <img src={userEvent.image} alt={userEvent.performer}/>
                         <div>
                             <h5>{userEvent.performer}</h5>
                             <p>{userEvent.date}</p>
