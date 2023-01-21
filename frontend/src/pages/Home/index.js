@@ -21,6 +21,7 @@ const Home = (props) => {
     return(
         
         <>
+        <h1>welcome</h1>
         {myEvents.length > 0 ? 
         myEvents.map((oneEvent, i) => {
             return(
