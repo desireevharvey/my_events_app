@@ -3,6 +3,7 @@ import { getAllEvents } from "../../utils/api";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+
 const Home = (props) => {
     
     const [myEvents, setMyEvents] = useState([]);
@@ -10,9 +11,9 @@ const Home = (props) => {
 
     useEffect(()=>{
         getAllEvents().then((data) => {setMyEvents(data)})
-    },[props.createdEvent])
+    },[props.createdEv])
 
-   
+    console.log(myEvents)
 
    
    
@@ -24,16 +25,20 @@ const Home = (props) => {
         {myEvents.length > 0 ? 
         myEvents.map((oneEvent, i) => {
             return(
+            <div class="card">
             <div key={i}>
                 <img src={oneEvent.image} alt={oneEvent.performer}></img>
                 <p>{oneEvent.performer}</p>
                 <p>{oneEvent.venue}</p>
                 <p>{oneEvent.date}</p>
                 <p>{oneEvent.time}</p>
-                </div>)
+                </div>
+                </div>
+                )
         })
         : null}
         </>
+       
     )
 }
 export default Home
