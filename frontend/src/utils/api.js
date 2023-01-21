@@ -10,13 +10,13 @@ const config = {
 
 // Log in to User Account
 export async function userLogIn(formData) {
-    const { data } = await axios.post('http://localhost:8000/user/login', formData)
+    const { data } = await axios.post('user/login', formData)
     return data
 }
 
 // Sign Up User Account 
 export async function userSignUp(formData) {
-    const { data } = await axios.post('http://localhost:8000/user/signup', formData)
+    const { data } = await axios.post('user/signup', formData)
     return data
 }
 
@@ -24,14 +24,14 @@ export async function userSignUp(formData) {
 // Show User 
 
 export async function getUserAccount(userId) {
-    const { data } = await axios.get('http://localhost:8000/user/' + userId, config)
+    const { data } = await axios.get(`user/${userId}`, config)
     return data
 }
 
 // Delete User and Associated Events
 
 export async function deleteUserAccount(userId) {
-    await axios.delete('http://localhost:8000/user/' + userId, config)
+    await axios.delete(`user/${userId}`, config)
 }
 
 // PRODUCTS AXIOS ROUTES
@@ -39,26 +39,26 @@ export async function deleteUserAccount(userId) {
 // Create Event Route
 
 export async function createEvent(formData) {
-    const { data } = await axios.post('http://localhost:8000/event', formData, config)
+    const { data } = await axios.post('event', formData, config)
     return data
 }
 
 // Get token data
 export async function getToken() {
-    const { data } = await axios.get('http://localhost:8000/user/token', config)
+    const { data } = await axios.get('user/token', config)
     return data
 }
 
 // Get Only The Logged In Users Events
 export async function getUserEvents(userId) {
-    const { data } = await axios.get('http://localhost:8000/user/get/' + userId)
+    const { data } = await axios.get(`user/get/${userId}`)
     return data
 }
 
 // Get all events
 
 export async function getAllEvents() {
-    const { data } = await axios.get('http://localhost:8000/event')
+    const { data } = await axios.get('event')
     return data
 }
 
@@ -66,20 +66,20 @@ export async function getAllEvents() {
 // Show One Event
 
 export async function showOneEvent(itemId) {
-    const { data } = await axios.get('http://localhost:8000/event/' + itemId)
+    const { data } = await axios.get(`event/${itemId}`)
     return data
 }
 
 // Update a Event
 
 export async function updateOneEvent(itemId, editedState) {
-    const { data } = await axios.put('http://localhost:8000/event/' + itemId, editedState, config)
+    const { data } = await axios.put(`event/${itemId}`, editedState, config)
     return data
 }
 
 // Delete a event
 
 export async function deleteOneEvent(itemId) {
-    await axios.delete('http://localhost:8000/event/' + itemId, config)
+    await axios.delete(`event/${itemId}`, config)
 }
 

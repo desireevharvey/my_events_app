@@ -1,0 +1,18 @@
+* {
+	text-align: center;
+}
+.columns {
+	margin: auto;
+	display: flex;
+    flex-direction: row;
+    justify-content: center;
+	margin-top: 3em;
+}
+
+.card{
+	height: max-content;
+    padding-bottom: 10%;
+	margin-top: 2em;
+	margin-top: 2em;
+    
+}
