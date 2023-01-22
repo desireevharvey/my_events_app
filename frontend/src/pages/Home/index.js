@@ -23,7 +23,7 @@ const Home = (props) => {
     return(
         
         <>
-        <h1 class="title">Welcome to Event-Maker</h1>
+        <h1 class="title">Welcome to Event-Maker!</h1>
             <div className="columns">
                 <div className="column is-one-third">
                     {myEvents.length > 0 ? 

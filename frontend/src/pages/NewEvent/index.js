@@ -41,8 +41,9 @@ const NewEvent = (props) => {
     return(
        
         <form>
-        <div>
-            <label htmlFor="image">Image: </label>
+        <div class="field">
+            <label class="label" htmlFor="image">Image: </label>
+            <div class="control">
             <input 
                 type="text" 
                 className="form-control"
@@ -50,28 +51,37 @@ const NewEvent = (props) => {
                 onChange={handleChange}
                 value={formData.image}  />
         </div>
-        <div>
-            <label htmlFor="performer">Performer: </label>
+        </div>
+        <div class="field">
+            <label class="label" htmlFor="performer">Performer: </label>
+            <div class="control">
             <input 
                 type="text" 
                 id="performer" 
                 onChange={handleChange}
                 value={formData.performer} />
         </div>
-        <div>
-            <label htmlFor="date">Date: </label>
+        </div>
+        <div class="field">
+            <label class="label" htmlFor="date">Date: </label>
+            <div class="control">
             <input type="text" id="date" value={formData.date} onChange={handleChange} />
         </div>
-        <div>
-            <label htmlFor="time">Time:</label>
+        </div>
+        <div class="field">
+            <label class="label" htmlFor="time">Time:</label>
+            <div class="control">
             <input type="text" id="time" value={formData.time} onChange={handleChange} />
         </div>
-        <div>
-            <label htmlFor="venue">Venue:</label>
+        </div>
+        <div class="field">
+            <label class="label" htmlFor="venue">Venue:</label>
+            <div class="control">
             <input type="text" id="venue" value={formData.venue} onChange={handleChange} />
         </div>
+        </div>
         <br />
-        <button onClick={handleSubmit}>Save Changes</button>
+        <button class="button is-link is-warning" onClick={handleSubmit}>Save Changes</button>
     </form>
        
     )
