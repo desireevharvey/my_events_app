@@ -22,15 +22,20 @@ const SignUp = (props) => {
     }
     return(
 <form onSubmit={handleSubmit}>
-  <div>
-    <label htmlFor="Username">Username</label>
-    <input type="text" name="username" onChange={handleChange} value={formData.username}/>
+  <div class="field">
+    <label class="label" htmlFor="Username">Username</label>
+    <div class="control">
+    <input class="input" type="text" name="username" onChange={handleChange} value={formData.username}/>
   </div>
-  <div>
-    <label htmlFor="Password">Password</label>
-    <input type="password" name="password" onChange={handleChange} value={formData.password}/>
+  <div class="field">
+    <label class="label" htmlFor="Password">Password</label>
+    <input class="input" type="password" name="password" onChange={handleChange} value={formData.password}/>
   </div>
-  <button onClick={handleSubmit}>Sign up</button>
+  <div class="control">
+  <button class="button is-link is-warning" onClick={handleSubmit}>Sign up</button>
+  </div>
+  </div>
+  
 </form>
     )
 }

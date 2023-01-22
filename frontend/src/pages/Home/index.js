@@ -23,6 +23,7 @@ const Home = (props) => {
     return(
         
         <>
+        <h1 class="title">Welcome to Event-Maker</h1>
             <div className="columns">
                 <div className="column is-one-third">
                     {myEvents.length > 0 ? 
@@ -30,7 +31,7 @@ const Home = (props) => {
                         return(
                                 <div className="card">
                                     <div className="card-image" key={i}>
-                                        <figure className="image is-4by3">
+                                        <figure className="image is-128x128">
                                             <img src={oneEvent.image} alt={oneEvent.performer}/>
                                         </figure>
                                         <p>{oneEvent.performer}</p>
