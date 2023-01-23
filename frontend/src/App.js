@@ -6,7 +6,6 @@ import LogIn from './pages/LogIn';
 import SignUp from './pages/SignUp';
 import NewEvent from './pages/NewEvent';
 import Account from './pages/Account';
-import ShowEvent from './pages/ShowEvent';
 import EditEvent from './pages/EditEvent';
 import Nav from './components/Nav';
 import { getAllEvents } from './utils/api';
