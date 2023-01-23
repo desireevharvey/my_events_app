@@ -66,20 +66,20 @@ export async function getAllEvents() {
 // Show One Event
 
 export async function showOneEvent(itemId) {
-    const { data } = await axios.get(`event/${itemId}`)
+    const { data } = await axios.get(`/event/${itemId}`)
     return data
 }
 
 // Update a Event
 
 export async function updateOneEvent(itemId, editedState) {
-    const { data } = await axios.put(`event/${itemId}`, editedState, config)
+    const { data } = await axios.put(`/event/${itemId}`, editedState, config)
     return data
 }
 
 // Delete a event
 
 export async function deleteOneEvent(itemId) {
-    await axios.delete(`event/${itemId}`, config)
+    await axios.delete(`/event/${itemId}`, config)
 }
 
