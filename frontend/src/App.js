@@ -24,7 +24,6 @@ return (
   <Routes>
   <Route path="/" element={<Home createdEvent={createdEvent} />} />
   <Route path="/:id/edit" element={<EditEvent />} />
-  <Route path="/event/:id" element={<ShowEvent currentUser={currentUser}/>} />
   <Route path="/login" element={<LogIn setIsLoggedIn={setIsLoggedIn} />} />
   <Route path="/signup" element={<SignUp setIsLoggedIn={setIsLoggedIn}/>} />
   <Route path="/newevent" element={<NewEvent setCreatedEvent={setCreatedEvent}/>} />
