@@ -39,7 +39,7 @@ export async function deleteUserAccount(userId) {
 // Create Event Route
 
 export async function createEvent(formData) {
-    const { data } = await axios.post('event', formData, config)
+    const { data } = await axios.post('/event', formData, config)
     return data
 }
 
@@ -51,7 +51,7 @@ export async function getToken() {
 
 // Get Only The Logged In Users Events
 export async function getUserEvents(userId) {
-    const { data } = await axios.get(`user/get/${userId}`)
+    const { data } = await axios.get(`/user/get/${userId}`)
     return data
 }
 
