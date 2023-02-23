@@ -58,7 +58,7 @@ export async function getUserEvents(userId) {
 // Get all events
 
 export async function getAllEvents() {
-    const { data } = await axios.get('event')
+    const { data } = await axios.get('/event')
     return data
 }
 
