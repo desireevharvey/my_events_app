@@ -9,9 +9,9 @@ export default function Nav(props) {
         {props.isLoggedIn ?
         <nav className="navbar is-warning" role="navigation" aria-label="main navigation">
               <div className="navbar-brand">
-    <Link to='/' className="navbar-item">
-      <img src="https://i.postimg.cc/3NT9t3r5/events.png" width="75" height="80">
-    </img></Link>
+   
+      <img className="navbar-item" src="https://i.postimg.cc/3NT9t3r5/events.png" width="75" height="80">
+    </img>
 
     <a role="button" className="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
       <span aria-hidden="true"></span>
