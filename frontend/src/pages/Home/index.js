@@ -1,22 +1,18 @@
 import React from "react"
 import { getAllEvents } from "../../utils/api";
 import { useState, useEffect } from "react";
-import axios from "axios";
 import "./index.css";
 
 
-const Home = (props) => {
+const Home = ({ myEvents }) => {
     
-    const [myEvents, setMyEvents] = useState([]);
+    // const [myEvents, setMyEvents] = useState([]);
 
 
-    useEffect(()=>{
-        getAllEvents().then((data) => {setMyEvents(data)})
-    },[props.createdEvent])
+    // useEffect(()=>{
+    //     getAllEvents().then((data) => {setMyEvents(data)})
+    // },[props.createdEvent])
 
-   
-
-   
    
 
 

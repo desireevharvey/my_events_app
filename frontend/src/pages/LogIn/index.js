@@ -28,11 +28,11 @@ const LogIn = (props) => {
   <div class="field">
     <label class="label" htmlFor="Username">Username</label>
     <div class="control">
-    <input class="input" type="text" placeholder="Text input" onChange={handleChange} value={formData.username}/>
+    <input class="input" type="text" onChange={handleChange} value={formData.username}/>
   </div>
   <div class="field">
     <label class="label" htmlFor="Password">Password</label>
-    <input class="input is-success" type="password" placeholder="Text input" value="bulma" onChange={handleChange} value={formData.password}/>
+    <input class="input is-success" type="password" onChange={handleChange} value={formData.password}/>
   </div>
   <button onClick={handleSubmit}>Login</button>
 </div>

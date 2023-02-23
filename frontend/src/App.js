@@ -17,19 +17,22 @@ export default function App(){
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [currentUser, setUser] = useState({})
   const [createdEvent, setCreatedEvent] = useState(false)
+  const [myEvents, setMyEvents] = useState([]);
 
   useEffect(() => {
     if (localStorage.token) {
       setIsLoggedIn(true)
     }
-  }, [])
+    getAllEvents().then((data) => {setMyEvents(data)})
 
-  
+  }, [createdEvent])
+
+
 return (
   <>
   <Nav isLoggedIn={isLoggedIn}/>
   <Routes>
-  <Route path="/" element={<Home createdEvent={createdEvent} />} />
+  <Route path="/" element={<Home createdEvent={createdEvent} myEvents={myEvents} />} />
   <Route path="/:id/edit" element={<EditEvent />} />
   <Route path="/event/:id" element={<ShowEvent currentUser={currentUser}/>} />
   <Route path="/login" element={<LogIn setIsLoggedIn={setIsLoggedIn} />} />
