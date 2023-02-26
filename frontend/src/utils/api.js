@@ -24,6 +24,11 @@ export async function userSignUp(formData) {
 // Show User 
 
 export async function getUserAccount(userId) {
+    const config = {
+        headers: {
+            'Authorization': localStorage.getItem('token')
+        }
+    }
     const { data } = await axios.get(`user/${userId}`, config)
     return data
 }
@@ -31,6 +36,11 @@ export async function getUserAccount(userId) {
 // Delete User and Associated Events
 
 export async function deleteUserAccount(userId) {
+    const config = {
+        headers: {
+            'Authorization': localStorage.getItem('token')
+        }
+    }
     await axios.delete(`user/${userId}`, config)
 }
 
@@ -39,12 +49,22 @@ export async function deleteUserAccount(userId) {
 // Create Event Route
 
 export async function createEvent(formData) {
-    const { data } = await axios.post('event', formData, config)
+    const config = {
+        headers: {
+            'Authorization': localStorage.getItem('token')
+        }
+    }
+    const { data } = await axios.post('/event', formData, config)
     return data
 }
 
 // Get token data
 export async function getToken() {
+    const config = {
+        headers: {
+            'Authorization': localStorage.getItem('token')
+        }
+    }
     const { data } = await axios.get('user/token', config)
     return data
 }
@@ -73,6 +93,11 @@ export async function showOneEvent(itemId) {
 // Update a Event
 
 export async function updateOneEvent(itemId, editedState) {
+    const config = {
+        headers: {
+            'Authorization': localStorage.getItem('token')
+        }
+    }
     const { data } = await axios.put(`/event/${itemId}`, editedState, config)
     return data
 }
@@ -80,6 +105,11 @@ export async function updateOneEvent(itemId, editedState) {
 // Delete a event
 
 export async function deleteOneEvent(itemId) {
+    const config = {
+        headers: {
+            'Authorization': localStorage.getItem('token')
+        }
+    }
     await axios.delete(`/event/${itemId}`, config)
 }
 

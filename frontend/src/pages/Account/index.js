@@ -4,16 +4,19 @@ import { useState, useEffect } from "react"
 const Account = (props) => {
     
     const [userEventData, setUserEventData] = useState([])
-    const userId = localStorage.getItem('id')
     
-   
+    
+    
     useEffect(() => {
+        const userId = localStorage.getItem('id')
         getUserEvents(userId).then((data) => {
             
             setUserEventData(data)
             
         })
     }, [])
+
+   
    
 
 

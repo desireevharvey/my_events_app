@@ -22,15 +22,11 @@ export default function Nav(props) {
 
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
-    <a class="navbar-item">
-            <Link to='/'>Home</Link>
-            </a>
-            <a class="navbar-item">
-            <Link to='/newevent'>New Event</Link>
-            </a>
-            <a class="navbar-item">
-            <Link to='/account'>Account</Link>
-            </a>
+    
+            <Link to='/' className="navbar-item">Home</Link>
+            <Link to='/newevent' className="navbar-item">New Event</Link>
+            <Link to='/account' className="navbar-item">Account</Link>
+            
             </div>
             </div>
         </nav>
@@ -43,19 +39,19 @@ export default function Nav(props) {
                 </a>
 
               <div class="navbar-start">
-            <a class="navbar-item">
-            <Link to='/'>Home</Link></a>
+            
+            <Link to='/' className="navbar-item">Home</Link>
             <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
-          <a class="button has-background-danger-light">
-            <strong>
-            <Link to='/signup'>Sign Up</Link>
-            </strong>
-            </a>
-            <a class="button has-background-danger-light">
-            <Link to='/login'>Login</Link>
-            </a>
+          
+            
+            <Link to='/signup' className="button has-background-danger-light">Sign Up</Link>
+           
+            
+            
+            <Link to='/login' className="button has-background-danger-light">Login</Link>
+            
         </div>
         </div>
       </div>

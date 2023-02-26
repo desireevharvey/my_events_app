@@ -16,7 +16,10 @@ const SignUp = (props) => {
     function handleSubmit(event) {
         event.preventDefault()
         userSignUp(formData)
-            .then((data) => localStorage.token = data.token)
+            .then((data) => {
+            localStorage.token = data.token
+            localStorage.id = data.user._id
+          })
         props.setIsLoggedIn(true)
         navigate('/')
     }
